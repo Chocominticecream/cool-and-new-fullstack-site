@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name='viewport', content = "width=device-width, initial-scale=1" />
+        <title>Music Controller</title>
+        {% load static %}
+        <!-- loads jquery, css style sheet and fonts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link 
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
+        />
+    </head>
+    <body>
+        <div id = 'main'>
+            <!-- react will render everything inside the app div-->
+            <div id = "app"><div>
+        <!-- v combine static load with the file path specified here v-->
+        <script src = "{% static "frontend/main.js" %}"></script>
+    </body>
+</html>
