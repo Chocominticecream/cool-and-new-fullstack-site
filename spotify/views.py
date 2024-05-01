@@ -2,10 +2,15 @@ from django.shortcuts import render, redirect
 from .credentials import REDIRECT_URI, CLIENT_ID, CLIENT_SECRET
 from rest_framework.views import APIView
 from requests import Request, post
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.response import Response
 from .utils import *
 from api.models import Room
+from .serializer import TokenSerializer
+
+class SpotifyTokenView(generics.ListAPIView):
+    queryset = SpotifyToken.objects.all()
+    serializer_class = TokenSerializer
 
 #authorise the usage of spotify and also generate a url after sending information
 class AuthURL(APIView):
@@ -110,3 +115,21 @@ class currentSong(APIView):
           }
 
           return Response(song, status=status.HTTP_200_OK)
+
+class currentQueue(APIView):
+     def get(self,request, format=None):
+          room_code = self.request.session.get('room_code')
+          room = Room.objects.filter(code=room_code)
+          if room.exists():
+               room = room[0]
+          else:
+               return Response({}, status=status.HTTP_404_NOT_FOUND)
+        
+          host = room.host
+          endpoint = "player/queue"
+          response = execute_spotify_api_request(host, endpoint)
+
+          #if 'error' in response or 'item' not in response:
+               #return Response({}, status=status.HTTP_204_NO_CONTENT)
+          
+          return Response(response, status=status.HTTP_200_OK)
