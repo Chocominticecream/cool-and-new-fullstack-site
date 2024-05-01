@@ -105,7 +105,8 @@ class currentSong(APIView):
                'image_url' : cover,
                'votes' : 0,
                'id' : song_id,
-               'isSong' : isSong
+               'isSong' : isSong,
+               'is_playing' : is_playing
           }
 
           return Response(song, status=status.HTTP_200_OK)

@@ -2,6 +2,7 @@ import React, {Component, useState, useEffect} from 'react';
 import { Grid, Typography, FormControl, FormHelperText, RadioGroup, FormControlLabel, Radio, TextField, Button } from '@material-ui/core';
 import { Link, useParams, useNavigate} from "react-router-dom";
 import CreateRoom from './CreateRoom';
+import MusicPlayer from './MusicPlayer';
 
 
 function Room({leaveRoomCallBack}) {
@@ -175,7 +176,11 @@ function Room({leaveRoomCallBack}) {
                 Room {roomCode}
             </Typography>
           </Grid>
-        
+          
+          <div style={{ padding: '10px' }}>
+          <MusicPlayer {...state.song}/>
+          </div>
+ 
           {state.isHost ? renderSettingsButton() : null}
 
           <Grid item xs={12} align = "center">
