@@ -8,4 +8,7 @@ urlpatterns = [
     path('current-queue', currentQueue.as_view()),
     #delete the below when exporting
     path('token-view', SpotifyTokenView.as_view()),
+    path('play', playSong.as_view()),
+    path('pause', pauseSong.as_view()),
+    path('skip', skipSong.as_view())
 ]

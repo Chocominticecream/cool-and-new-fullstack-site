@@ -13,6 +13,33 @@ function MusicPlayer({
     duration
 }) {
 
+    function skipSong()
+    {
+        const requestOptions = {
+            method: "POST",
+            headers: {"Content-Type" : "application/json"},
+         };
+         fetch("/spotify/next", requestOptions);
+    }
+
+    function playSong()
+    {
+        const requestOptions = {
+            method: "PUT",
+            headers: {"Content-Type" : "application/json"},
+         };
+         fetch("/spotify/play", requestOptions);
+    }
+
+    function pauseSong()
+    {
+       const requestOptions = {
+          method: "PUT",
+          headers: {"Content-Type" : "application/json"},
+       };
+       fetch("/spotify/pause", requestOptions);
+    }
+
     const songProgress = (time / duration) * 100;
 
     return(
@@ -29,7 +56,7 @@ function MusicPlayer({
                       {credits}
                     </Typography>
                     <div>
-                        <IconButton>
+                        <IconButton onClick ={()=>{is_playing ? pauseSong() : playSong()}}>
                             {is_playing ? <PauseIcon/> : <PlayArrowIcon/>}
                         </IconButton>
                         
