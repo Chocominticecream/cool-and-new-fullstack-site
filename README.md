@@ -42,6 +42,6 @@ I am also planning to deploy it so that people who want to actually use this web
 people who want to improve on it 
 
 bugs to fix: 
-- play/pause button not being relfected correctly (glitchy)
+- ~~play/pause button not being relfected correctly (glitchy)~~ (fixed?, implemented forced reloading to reload until the correct result appears)
 - eacg guest can vote multiple times (its not supposed to do that)
  
