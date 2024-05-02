@@ -40,4 +40,8 @@ Future plans
  At this moment the process to make this webapp usable on wifi is quite troublesome, so i might be finding a way to circumvent this/make this easier. 
 I am also planning to deploy it so that people who want to actually use this webapp don't have to go through the hassle. The local version will simply serve as a version for
 people who want to improve on it 
+
+bugs to fix: 
+- play/pause button not being relfected correctly (glitchy)
+- eacg guest can vote multiple times (its not supposed to do that)
  
