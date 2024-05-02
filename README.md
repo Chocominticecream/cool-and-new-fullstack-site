@@ -30,9 +30,14 @@ Future plans
  6.) open up CMD and do "ipconfig /all"
  
  7.)get the ipv4 address of your wiress LAN server
+
+ 8.)in the my_app folder, click on settings.py and find the ALLOWED_HOSTS list, add your ipv4 address to the list of ALLOWED_HOSTS:
+
+ eg. your ip address is 10.0.0.0 , your ALLOWED_HOSTS should look like this AFTER adding in the address: ['0.0.0.0', '127.0.0.1', '0.0.0.0']
  
  8.) when accessing through another device do ipv4address:8000
 
- I couldnt get the local connection to work as it says that the server is not responding so I am planning to deploy a hosted version, this version will serve as a base for people who want to improve on it
-  
+ At this moment the process to make this webapp usable on wifi is quite troublesome, so i might be finding a way to circumvent this/make this easier. 
+I am also planning to deploy it so that people who want to actually use this webapp don't have to go through the hassle. The local version will simply serve as a version for
+people who want to improve on it 
  
