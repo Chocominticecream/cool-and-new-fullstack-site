@@ -3,6 +3,7 @@ import datetime
 from django.http import HttpResponse, JsonResponse
 from rest_framework import generics, status
 from .models import Room
+from spotify.models import SpotifyToken
 from .serializer import RoomSerializer, CreateRoomSerializer, UpdateRoomSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -106,10 +107,14 @@ class LeaveRoom(APIView):
             host_id = self.request.session.session_key
             #filter through room results to find id, if true, make an array of size 1
             room_results = Room.objects.filter(host=host_id)
+            token_results = SpotifyToken.objects.filter(user=host_id)
             #if array more than zero (found host id)delete the room
             if len(room_results) > 0:
                 room = room_results[0]
                 room.delete()
+            if len(token_results) > 0:
+                token = token_results[0]
+                token.delete()
         return Response({'Message':'Room deletion successful!'},status=status.HTTP_200_OK)
 
 #similar to create room view but it is created so that it allows a host to update any room
