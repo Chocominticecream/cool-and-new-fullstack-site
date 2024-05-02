@@ -11,5 +11,3 @@ Future plans
 - deploy this site with postgresSQL, then make a private repository version of the site (so that no one can mess with the data)
 
  Website is unfinished, will put instructions on how to run this locally.
-
-I am also planning to deploy this site as well
