@@ -33,7 +33,7 @@ Future plans
 
  8.)in the my_app folder, click on settings.py and find the ALLOWED_HOSTS list, add your ipv4 address to the list of ALLOWED_HOSTS:
 
- eg. your ip address is 10.0.0.0 , your ALLOWED_HOSTS should look like this AFTER adding in the address: ['0.0.0.0', '127.0.0.1', '0.0.0.0']
+ eg. your ip address is 10.0.0.0 , your ALLOWED_HOSTS should look like this AFTER adding in the address: ['0.0.0.0', '127.0.0.1', '10.0.0.0']
  
  8.) when accessing through another device do ipv4address:8000
 
