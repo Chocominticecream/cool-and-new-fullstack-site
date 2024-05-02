@@ -14,6 +14,7 @@ Future plans
  - anaconda
 
  Instructions to run locally on vscode:
+ 
  1.) open up two terminals
  
  2.) on one of the terminals do "conda activate base"
