@@ -5,7 +5,7 @@
  At the time of creation, this site is basically a music controller site for spotify, that allows guests to join a room and skip songs when played from a main device, functionally similar to how kahoot works but its a music player. It isn't much at the moment.
 
 Future plans
-- fully implement base functionalities : vote skipping, playing and pausing
+- ~~fully implement base functionalities : vote skipping, playing and pausing~~
 - a search function to allow guests to suggest songs
 - if there are no songs, it will play from the host's playlist
 - deploy this site with postgresSQL, then make a private repository version of the site (so that no one can mess with the data)
