@@ -9,6 +9,8 @@ function MusicPlayer({
     title,
     credits,
     is_playing,
+    votes,
+    votes_required,
     time,
     duration
 }) {
@@ -19,7 +21,7 @@ function MusicPlayer({
             method: "POST",
             headers: {"Content-Type" : "application/json"},
          };
-         fetch("/spotify/next", requestOptions);
+         fetch("/spotify/skip", requestOptions);
     }
 
     function playSong()
@@ -41,7 +43,8 @@ function MusicPlayer({
     }
 
     const songProgress = (time / duration) * 100;
-
+    // when putting signalling functioncs(onclick) you can use either () => {function} or 
+    //make the function a constant and do function = () => and then in the signalling variable {function}
     return(
         <Card>
             <Grid container alignItems="center">
@@ -49,6 +52,9 @@ function MusicPlayer({
                     <img src = {image_url} height="100%" width="100%"/>
                 </Grid>
                 <Grid item align="center" xs={8}>
+                <Typography component="h4" variant="h4">
+                Votes to Skip: {votes} / {votes_required}
+                </Typography>
                     <Typography component="h5" variant="h5">
                       {title}
                     </Typography>
@@ -60,8 +66,9 @@ function MusicPlayer({
                             {is_playing ? <PauseIcon/> : <PlayArrowIcon/>}
                         </IconButton>
                         
-                        <IconButton>
-                            <SkipNextIcon />
+                        
+                        <IconButton onClick ={()=>{skipSong()}}>
+                            <SkipNextIcon /> 
                         </IconButton>
                     </div>
                 </Grid>
