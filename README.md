@@ -26,12 +26,13 @@ Future plans
  5.) on your device, you can go to http://127.0.0.1:8000/ to access the webapp
 
  To have other devices locally connect:
+ 
  6.) open up CMD and do "ipconfig /all"
  
  7.)get the ipv4 address of your wiress LAN server
  
  8.) when accessing through another device do ipv4address:8000
 
- I couldnt get the local connection to work so I am planning to deploy a hosted version, this version will serve as a base for people who want to improve on it
+ I couldnt get the local connection to work as it says that the server is not responding so I am planning to deploy a hosted version, this version will serve as a base for people who want to improve on it
   
  
