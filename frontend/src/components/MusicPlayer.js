@@ -17,6 +17,7 @@ function MusicPlayer({
 
     function skipSong()
     {
+        window.location.reload();
         const requestOptions = {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
@@ -26,15 +27,18 @@ function MusicPlayer({
 
     function playSong()
     {
+        window.location.reload();
         const requestOptions = {
             method: "PUT",
             headers: {"Content-Type" : "application/json"},
          };
-         fetch("/spotify/play", requestOptions);
+        fetch("/spotify/play", requestOptions);
+        
     }
 
     function pauseSong()
     {
+       window.location.reload();
        const requestOptions = {
           method: "PUT",
           headers: {"Content-Type" : "application/json"},

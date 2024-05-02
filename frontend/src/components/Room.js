@@ -36,25 +36,37 @@ function Room({leaveRoomCallBack}) {
         }
         }, [state.isHost]);
     
-    const getcurrentSong = () =>
-    {
-        fetch("/spotify/current-song")
-        .then((response) => {
-          if(!response.ok){
-            return {};
-          }
-          else
-          {
-            return response.json();
-          }
-        })
-        .then((data) => {setState((prevState)=>({
-          ...prevState,
-          song : data,
-      }))
-    
-      })
-    }
+    const getcurrentSong = () => {
+          fetch("/spotify/current-song")
+            .then((response) => {
+              if (!response.ok) {
+                return {}; // Return an empty object if response is not OK
+              } else {
+                return response.text(); // Read response as text
+              }
+            })
+            .then((text) => {
+              try {
+                // Attempt to parse the response text as JSON
+                const data = JSON.parse(text);
+                // Update state with the parsed JSON data
+                setState((prevState) => ({
+                  ...prevState,
+                  song: data,
+                }));
+              } catch (error) {
+                //catch errors and then forcibly reload the window until the correct result appears
+                console.error('Error parsing JSON:', error);
+                window.location.reload();
+              }
+            })
+            .catch((error) => {
+              
+              console.error('Error fetching current song:', error);
+              window.location.reload();
+            });
+        };
+
 
     const leaveButtonPressed = () =>
     {
