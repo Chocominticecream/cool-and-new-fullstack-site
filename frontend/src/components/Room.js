@@ -57,13 +57,13 @@ function Room({leaveRoomCallBack}) {
               } catch (error) {
                 //catch errors and then forcibly reload the window until the correct result appears
                 console.error('Error parsing JSON:', error);
-                window.location.reload();
+                getcurrentSong();
               }
             })
             .catch((error) => {
               
               console.error('Error fetching current song:', error);
-              window.location.reload();
+              getcurrentSong();
             });
         };
 
