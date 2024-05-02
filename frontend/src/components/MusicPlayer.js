@@ -52,9 +52,9 @@ function MusicPlayer({
                     <img src = {image_url} height="100%" width="100%"/>
                 </Grid>
                 <Grid item align="center" xs={8}>
-                <Typography component="h4" variant="h4">
-                Votes to Skip: {votes} / {votes_required}
-                </Typography>
+                    <Typography component="h6" variant="h6">
+                       Votes to Skip: {votes} / {votes_required}
+                    </Typography>
                     <Typography component="h5" variant="h5">
                       {title}
                     </Typography>
