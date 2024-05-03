@@ -13,7 +13,7 @@ Future plans
 
  Requirements for running locally:
  - anaconda
- - a spotify web api
+ - your own spotify web api
 
  Instructions to run locally on vscode:
  
