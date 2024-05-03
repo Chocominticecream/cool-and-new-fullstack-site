@@ -8,10 +8,12 @@ Future plans
 - ~~fully implement base functionalities : vote skipping, playing and pausing~~
 - a search function to allow guests to suggest songs
 - if there are no songs, it will play from the host's playlist
-- deploy this site with postgresSQL, then make a private repository version of the site (so that no one can mess with the data)
+- Allow guests to add to a queue, one per guest
+- deploy this site with postgresSQL, make github ignore settings.py when pushing for security reasons
 
  Requirements for running locally:
  - anaconda
+ - a spotify web api
 
  Instructions to run locally on vscode:
  
@@ -29,19 +31,22 @@ Future plans
  
  6.) open up CMD and do "ipconfig /all"
  
- 7.)get the ipv4 address of your wiress LAN server
+ 7.)get the ipv4 address of your wifi (should be under wireless LAN)
 
  8.)in the my_app folder, click on settings.py and find the ALLOWED_HOSTS list, add your ipv4 address to the list of ALLOWED_HOSTS:
 
  eg. your ip address is 10.0.0.0 , your ALLOWED_HOSTS should look like this AFTER adding in the address: ['0.0.0.0', '127.0.0.1', '10.0.0.0']
+
+ 8.) go to the spotify folder and inside credentials.py, replace the CLIENT_ID, CLIENT_SECRET and BASE_URI with your client secret and id
+ for the BASE_URL, create an address in this format: "http://{your_ip_here}:8000/spotify/redirect", dont forget to add that base uri to the your spotify api!
  
- 8.) when accessing through another device do ipv4address:8000
+ 9.) when accessing through another device do ipv4address:8000
 
  At this moment the process to make this webapp usable on wifi is quite troublesome, so i might be finding a way to circumvent this/make this easier. 
 I am also planning to deploy it so that people who want to actually use this webapp don't have to go through the hassle. The local version will simply serve as a version for
 people who want to improve on it 
 
 bugs to fix: 
-- ~~play/pause button not being relfected correctly (glitchy)~~ (fixed?, implemented forced reloading to reload until the correct result appears)
-- eacg guest can vote multiple times (its not supposed to do that)
+- ~~play/pause button not being relfected correctly (glitchy)~~ (fixed?, music should update properly now, albeit lagging a bit)
+- each guest can vote multiple times (its not supposed to do that)
  
