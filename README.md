@@ -48,5 +48,5 @@ people who want to improve on it
 
 bugs to fix: 
 - ~~play/pause button not being relfected correctly (glitchy)~~ (fixed?, music should update properly now, albeit lagging a bit)
-- each guest can vote multiple times (its not supposed to do that)
+- ~~each guest can vote multiple times (its not supposed to do that)~~ (fixed, now to add some fancy warning to notify users they cant vote multiple times)
  
