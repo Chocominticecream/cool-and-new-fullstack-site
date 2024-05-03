@@ -5,19 +5,18 @@ import PauseIcon from '@material-ui/icons/Pause';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 
 function MusicPlayer({
-    image_url,
-    title,
-    credits,
+    image_url = 'https://www.solidscape.com/wp-content/uploads/2021/04/640x640_placeholder.png',
+    title = 'Loading song!',
+    credits = 'make sure your spotify is playing or you have premium!',
     is_playing,
-    votes,
-    votes_required,
+    votes = 0,
+    votes_required = 99,
     time,
     duration
 }) {
 
     function skipSong()
     {
-        window.location.reload();
         const requestOptions = {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
@@ -27,7 +26,6 @@ function MusicPlayer({
 
     function playSong()
     {
-        window.location.reload();
         const requestOptions = {
             method: "PUT",
             headers: {"Content-Type" : "application/json"},
@@ -38,7 +36,6 @@ function MusicPlayer({
 
     function pauseSong()
     {
-       window.location.reload();
        const requestOptions = {
           method: "PUT",
           headers: {"Content-Type" : "application/json"},
