@@ -29,7 +29,7 @@ Future plans
  
  6.) open up CMD and do "ipconfig /all"
  
- 7.)get the ipv4 address of your wiress LAN server
+ 7.)get the ipv4 address of your wifi (should be under wireless LAN)
 
  8.)in the my_app folder, click on settings.py and find the ALLOWED_HOSTS list, add your ipv4 address to the list of ALLOWED_HOSTS:
 
