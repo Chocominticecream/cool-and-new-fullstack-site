@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-oh3-a1yf=b3ikz4kc%v=rmul&=tyze2bzko9#639fw@cmtezqs
 DEBUG = True
 
 #remove last ip when deploying
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','yes']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 
 # Application definition
