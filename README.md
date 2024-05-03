@@ -8,6 +8,7 @@ Future plans
 - ~~fully implement base functionalities : vote skipping, playing and pausing~~
 - a search function to allow guests to suggest songs
 - if there are no songs, it will play from the host's playlist
+- Allow guests to add to a queue, one per guest
 - deploy this site with postgresSQL, make github ignore settings.py when pushing for security reasons
 
  Requirements for running locally:
