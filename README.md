@@ -13,6 +13,7 @@ Future plans
 
  Requirements for running locally:
  - anaconda
+ - a spotify web api
 
  Instructions to run locally on vscode:
  
@@ -35,8 +36,11 @@ Future plans
  8.)in the my_app folder, click on settings.py and find the ALLOWED_HOSTS list, add your ipv4 address to the list of ALLOWED_HOSTS:
 
  eg. your ip address is 10.0.0.0 , your ALLOWED_HOSTS should look like this AFTER adding in the address: ['0.0.0.0', '127.0.0.1', '10.0.0.0']
+
+ 8.) go to the spotify folder and inside credentials.py, replace the CLIENT_ID, CLIENT_SECRET and BASE_URI with your client secret and id
+ for the BASE_URL, create an address in this format: "http://{your_ip_here}:8000/spotify/redirect", dont forget to add that base uri to the your spotify api!
  
- 8.) when accessing through another device do ipv4address:8000
+ 9.) when accessing through another device do ipv4address:8000
 
  At this moment the process to make this webapp usable on wifi is quite troublesome, so i might be finding a way to circumvent this/make this easier. 
 I am also planning to deploy it so that people who want to actually use this webapp don't have to go through the hassle. The local version will simply serve as a version for
