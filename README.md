@@ -23,7 +23,7 @@ Future plans
  
  3.) on the same terminal do "python manage.py runserver 0.0.0.0:8000"
 
- 4.) on another terminal do "npm run dev"
+ 4.) on another terminal do "cd ./frontend" then "npm run dev"
  
  5.) on your device, you can go to http://127.0.0.1:8000/ to access the webapp
 
