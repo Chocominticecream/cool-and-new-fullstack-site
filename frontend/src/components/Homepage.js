@@ -42,7 +42,9 @@ const clearRoomCode = () =>{
 }
 
 function renderHomePage(){
-    return(<Grid container spacing={3} align="center">
+    return(
+    <div className='center'>
+    <Grid container spacing={3} align="center">
         <Grid item xs ={12}>
           <Typography variant="h3" compact="h3">
             House Party!
@@ -59,7 +61,8 @@ function renderHomePage(){
                 </Button>
             </ButtonGroup>
         </Grid>
-    </Grid>);
+    </Grid>
+    </div>);
 }
     
 //you can write if else statements within the props argument in the component

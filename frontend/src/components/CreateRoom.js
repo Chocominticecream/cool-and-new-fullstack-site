@@ -7,7 +7,8 @@ function CreateRoom({ update = false,
     votesToSkip = 2,
     guestCanPause = true,
     roomCode = null,
-    updateCallback = () => {} }) {
+    updateCallback = () => {},
+    className = "center" }) {
     
     
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ function CreateRoom({ update = false,
         updateCallback: updateCallback,
         successMsg: "",
         errorMsg: "",
+        className: className,
     });
     const title = state.update ? "Update Room" : "Create Room"
 
@@ -107,7 +109,7 @@ function CreateRoom({ update = false,
     }
 
     return (
-        <Grid container spacing={1} align="center">
+        <Grid container spacing={1} align="center" className={state.className}>
             <Grid item xs={12}>
                 <Collapse in={state.errorMsg != "" || state.successMsg != ""}>
                     {state.successMsg != "" ? 

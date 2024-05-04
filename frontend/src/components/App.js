@@ -19,7 +19,7 @@ function App() {
         
         return (
         
-        <div className='center'>
+        <div className = "center">
         <Homepage />
         </div>);
     

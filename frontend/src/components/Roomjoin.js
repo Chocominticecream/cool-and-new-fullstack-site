@@ -52,6 +52,7 @@ function Roomjoin (){
     
     return (
     //centers all grid items
+    <div className = "center">
     <Grid container spacing={1} align="center">
       <Grid item xs={12}>
         <Typography component="h4" variant="h4">
@@ -82,7 +83,8 @@ function Roomjoin (){
       <Grid item xs={12}>
 
       </Grid>
-    </Grid>);
+    </Grid>
+    </div>);
     
 }
 

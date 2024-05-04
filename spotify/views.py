@@ -139,13 +139,22 @@ class currentQueue(APIView):
                room = room[0]
           else:
                return Response({}, status=status.HTTP_404_NOT_FOUND)
-        
+          
+          songArray = []
           host = room.host
           endpoint = "player/queue"
           response = execute_spotify_api_request(host, endpoint)
+          response = response.get("queue")
 
-          #if 'error' in response or 'item' not in response:
-               #return Response({}, status=status.HTTP_204_NO_CONTENT)
+          for song in response:
+              name = song.get("name")
+              image_url = song.get("album").get("images")[2].get("url")
+              song_id = song.get("id")
+
+              queueSong = {"title" : name,
+                           "image_url" : image_url,
+                            "song_id" : song_id}
+              songArray.append(queueSong)
           
           return Response(response, status=status.HTTP_200_OK)
 

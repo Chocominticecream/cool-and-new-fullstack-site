@@ -18,3 +18,5 @@ class Vote(models.Model):
     song_id = models.CharField(max_length=50)
     #create a foreign key related to the room
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
+
+#make a queue object here? and then link it to room?

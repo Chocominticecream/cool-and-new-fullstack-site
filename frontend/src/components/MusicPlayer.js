@@ -10,7 +10,7 @@ function MusicPlayer({
     credits = 'make sure your spotify is playing or you have premium!',
     is_playing,
     votes = 0,
-    votes_required = 99,
+    votes_required = Infinity,
     time,
     duration
 }) {
@@ -47,7 +47,7 @@ function MusicPlayer({
     // when putting signalling functioncs(onclick) you can use either () => {function} or 
     //make the function a constant and do function = () => and then in the signalling variable {function}
     return(
-        <Card>
+        <Card >
             <Grid container alignItems="center">
                 <Grid item align="center" xs={4}>
                     <img src = {image_url} height="100%" width="100%"/>

@@ -14,17 +14,21 @@ function Room({leaveRoomCallBack}) {
         isHost: false,
         showSettings : false,
         spotifyAuthenticated : false,
+        showSearch : false,
         song : {},
     });
 
     useEffect(() => {
         GetRoomDetails()
-        getcurrentSong()
         }, [])
     
     //terrible way to fetch songs using polling
     useEffect(() => {
+      const interval = setInterval(() => {
         getcurrentSong()
+        }, 1000);
+
+        return () => clearInterval(interval);
         }, [state.song])
     
     useEffect(() => {
@@ -97,7 +101,16 @@ function Room({leaveRoomCallBack}) {
         setState({
             ...state,
             showSettings : value,
+            showSearch : false,
         });
+    }
+
+    const UpdateShowSearch = (value) => {
+      setState({
+          ...state,
+          showSearch : value,
+          showSettings : false,
+      });
     }
 
     function GetRoomDetails(){
@@ -149,12 +162,13 @@ function Room({leaveRoomCallBack}) {
     const renderSettings = () =>
     {
         return (<Grid container spacing = {1}>
-            <Grid item xs={12} align = "center">
+            <Grid item xs={12} align = "center" >
               <CreateRoom update={true} 
               votesToSkip={state.votesToSkip}
               guestCanPause={state.guestCanPause} 
               roomCode = {roomCode}
-              updateCallback = {updateState}/>
+              updateCallback = {updateState}
+              className = {''}/>
             </Grid>
 
             <Grid item xs={12} align = "center">
@@ -163,6 +177,24 @@ function Room({leaveRoomCallBack}) {
             </Button>
             </Grid>
         </Grid>)
+    }
+
+    const renderSpotifySearch = () =>
+    {
+      return (<Grid container spacing = {1} style={{top: '50%'}}>
+        <Grid item xs={12} align = "center">
+           <Typography component = "h4" variant = "h4">
+               Spotify search
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} align = "center" >
+            <Button color="secondary" variant="contained" onClick = {() => UpdateShowSearch(false)}>
+              Back to Room
+            </Button>
+        </Grid>
+
+      </Grid>)
     }
 
     const renderSettingsButton = () =>
@@ -176,23 +208,40 @@ function Room({leaveRoomCallBack}) {
         )
     }
 
+    const renderSearchButton = () =>
+      {
+          return(
+            <Grid item xs={12} align = "center">
+              <Button color="primary" variant="contained" onClick={() => UpdateShowSearch(true)}>
+                Add a song to queue
+              </Button>
+            </Grid>
+          )
+      }
+        
+        if (state.showSearch)
+        {return renderSpotifySearch();}
 
 
         if (state.showSettings)
-        {return renderSettings();}
+        {return <Grid className='center'> {renderSettings()};</Grid>}
         
         
-        return (<Grid container spacing = {1}>
+        return (
+        <div className='center'>
+        <Grid container spacing = {1}>
           <Grid item xs={12} align = "center">
             <Typography component = "h4" variant = "h4">
                 Room {roomCode}
             </Typography>
           </Grid>
           
-          <div style={{ padding: '10px' }}>
+          <Grid>
           <MusicPlayer {...state.song}/>
-          </div>
- 
+          </Grid>
+          
+          {renderSearchButton()}
+
           {state.isHost ? renderSettingsButton() : null}
 
           <Grid item xs={12} align = "center">
@@ -200,7 +249,8 @@ function Room({leaveRoomCallBack}) {
               Leave Room
             </Button>
           </Grid>
-        </Grid>);
+        </Grid>
+        </div>);
     
 }
 
