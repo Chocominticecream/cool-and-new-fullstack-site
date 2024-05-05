@@ -47,8 +47,8 @@ function MusicPlayer({
     // when putting signalling functioncs(onclick) you can use either () => {function} or 
     //make the function a constant and do function = () => and then in the signalling variable {function}
     return(
-        <Card >
-            <Grid container alignItems="center">
+        <Card style={{ backgroundColor: '#F1F5A8'}}>
+            <Grid container alignItems="center" >
                 <Grid item align="center" xs={4}>
                     <img src = {image_url} height="100%" width="100%"/>
                 </Grid>

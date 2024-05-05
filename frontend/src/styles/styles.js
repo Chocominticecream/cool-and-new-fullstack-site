@@ -9,6 +9,10 @@ const theme = createTheme({
     secondary: {
       main: green[500], // Green color for secondary
     },
+
+    bgColor : {
+      main: lime[200]
+    }
   },
   // You can add more customization here
 });

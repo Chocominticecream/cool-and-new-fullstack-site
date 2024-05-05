@@ -109,7 +109,7 @@ function CreateRoom({ update = false,
     }
 
     return (
-        <Grid container spacing={1} align="center" className={state.className}>
+        <Grid container spacing={1} align="center" className={state.className} style={{ backgroundColor: '#F1F5A8', borderRadius: '20px',display: 'inline-block',}}>
             <Grid item xs={12}>
                 <Collapse in={state.errorMsg != "" || state.successMsg != ""}>
                     {state.successMsg != "" ? 

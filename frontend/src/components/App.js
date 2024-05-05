@@ -1,6 +1,7 @@
 import React, {Component, useState} from "react";
 import { render } from "react-dom";
 import Homepage from "./Homepage";
+import Motion from "./Motion.js";
 import Roomjoin from "./Roomjoin";
 import CreateRoom from "./CreateRoom";
 import { ThemeProvider, createTheme } from '@material-ui/core';
@@ -12,6 +13,7 @@ function App() {
     const [state, setState] = useState({
         
     });
+    
 
 //you can write if else statements within the props argument in the component
 //so that it can dynamically render
@@ -19,7 +21,8 @@ function App() {
         
         return (
         
-        <div className = "center">
+        <div>
+        <Motion/>
         <Homepage />
         </div>);
     

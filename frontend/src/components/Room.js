@@ -1,11 +1,18 @@
 import React, {Component, useState, useEffect} from 'react';
-import { Grid, Typography, FormControl, FormHelperText, RadioGroup, FormControlLabel, Radio, TextField, Button } from '@material-ui/core';
+import { Grid, Typography, FormControl, TextField, 
+         Button, Input, InputLabel, FormGroup, IconButton} from '@material-ui/core';
 import { Link, useParams, useNavigate} from "react-router-dom";
 import CreateRoom from './CreateRoom';
 import MusicPlayer from './MusicPlayer';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
+import { useTheme } from '@material-ui/core/styles';
 
 
 function Room({leaveRoomCallBack}) {
+    const theme = useTheme();
     const navigate = useNavigate();
     const { roomCode } = useParams();
     const [state, setState] = useState({
@@ -23,10 +30,11 @@ function Room({leaveRoomCallBack}) {
         }, [])
     
     //terrible way to fetch songs using polling
+    //polls a get every runescape tick
     useEffect(() => {
       const interval = setInterval(() => {
         getcurrentSong()
-        }, 1000);
+        }, 603);
 
         return () => clearInterval(interval);
         }, [state.song])
@@ -67,7 +75,6 @@ function Room({leaveRoomCallBack}) {
             .catch((error) => {
               
               console.error('Error fetching current song:', error);
-              getcurrentSong();
             });
         };
 
@@ -161,7 +168,7 @@ function Room({leaveRoomCallBack}) {
 
     const renderSettings = () =>
     {
-        return (<Grid container spacing = {1}>
+        return (<Grid container spacing = {1} style={{ backgroundColor: '#F1F5A8', borderRadius: '20px',}}>
             <Grid item xs={12} align = "center" >
               <CreateRoom update={true} 
               votesToSkip={state.votesToSkip}
@@ -178,22 +185,45 @@ function Room({leaveRoomCallBack}) {
             </Grid>
         </Grid>)
     }
-
+    
+    //making an element an "item" without centering it will allow it to iterate to the next column
+    //to iterate to the next row use align center
     const renderSpotifySearch = () =>
     {
-      return (<Grid container spacing = {1} style={{top: '50%'}}>
+      return (<Grid container spacing = {2} style={{backgroundColor: theme.palette.bgColor.main}}>
+        
         <Grid item xs={12} align = "center">
            <Typography component = "h4" variant = "h4">
                Spotify search
           </Typography>
         </Grid>
 
-        <Grid item xs={12} align = "center" >
+
+    
+    <Grid item xs={12} align = "center" container spacing = {1} justifyContent ="center">
+
+    <Paper
+      component="form"
+      sx={{ display: 'flex', alignItems: 'center', width: 400 }}
+    >
+      <InputBase
+        sx={{ ml: 1, flex: 1 }}
+        placeholder="Search Spotify"
+        inputProps={{ 'aria-label': 'search spotify' }}
+      />
+      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+    </Paper>
+
+  </Grid>
+
+
+      <Grid item xs={12} align = "center" style={{padding: "10px"}}>
             <Button color="secondary" variant="contained" onClick = {() => UpdateShowSearch(false)}>
               Back to Room
             </Button>
         </Grid>
-
       </Grid>)
     }
 
@@ -231,15 +261,16 @@ function Room({leaveRoomCallBack}) {
         <div className='center'>
         <Grid container spacing = {1}>
           <Grid item xs={12} align = "center">
-            <Typography component = "h4" variant = "h4">
+            <Typography component = "h4" variant = "h4" style={{color: '#F1F5A8'}}>
                 Room {roomCode}
             </Typography>
           </Grid>
           
-          <Grid>
+          <Grid  Grid item xs={12} align = "center">
           <MusicPlayer {...state.song}/>
           </Grid>
           
+
           {renderSearchButton()}
 
           {state.isHost ? renderSettingsButton() : null}
