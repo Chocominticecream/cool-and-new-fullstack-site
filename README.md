@@ -19,7 +19,7 @@ Future plans
  
  1.) open up two terminals
  
- 2.) on one of the terminals do "conda activate base"
+ 2.) on one of the terminals activate your environment, or do "conda activate base" to use base environment
  
  3.) on the same terminal do "python manage.py runserver 0.0.0.0:8000"
 
